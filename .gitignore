@@ -1,0 +1,45 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
+# 运行目录与本地缓存
+run
+runs
+run-data
+repo
+libs/*.jar
+.tmpgradle
+.tmpsession
+.tmp*
+# 本机把 GRADLE_USER_HOME 指到工作区内（沙箱下唯一可写位置），不提交
+.gradle-home
+build.log
+*.gradle-home
+.dl.js
+
+# 整理仓库前的本地备份，不提交
+.pre-git-backup/
+
+# 参考源码（只读 clone，不参与构建）
+reference/
+
+# 系统文件
+*.log
+.DS_Store
+Thumbs.db
