@@ -1,7 +1,5 @@
 # Maid Soul Bag（女仆魂符袋）
 
-![Build](https://github.com/IlexChnsis/maid_soul_bag/actions/workflows/build.yml/badge.svg)
-
 一个 NeoForge 1.21.1 饰品模组：把「装有女仆的魂符」（TLM `smart_slab_has_maid`）存进一枚 Curios 饰品，
 用快捷键一键放出 / 一键收回（不限距离，只处理已加载区块），并显示收回数量。
 
@@ -89,7 +87,7 @@ maid_soul_bag/
 │   ├── SESSION-REFERENCE.md      # 版本矩阵、构建验证、已知环境问题
 │   ├── design-v1.1-naming-and-wheel.md   # 命名栏 + 轮盘开发计划（已实现）
 │   └── design-v1.1-radial-ui.md          # 界面形态设计草案（已实现）
-├── .github/workflows/build.yml   # CI：JDK 21 + ./gradlew build
+├── .gitattributes / .gitignore
 ├── src/main/templates/META-INF/neoforge.mods.toml   # 占位符模板，构建时展开
 └── src/main/java/com/maidsoulbag/
     ├── MaidSoulBag.java                     # @Mod 入口

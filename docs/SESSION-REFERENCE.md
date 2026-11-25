@@ -32,7 +32,7 @@ compileOnly "maven.modrinth:curios:${curios_version}"           // yohfFbgD = 9.
 ## 3. 本机网络适配（换环境要改）
 
 - 依赖下载走本地代理（Clash）：`127.0.0.1:7897`。
-- 仓库内 `gradle.properties` 的四行 `systemProp.*.proxyHost/Port` **默认注释掉**，方便 CI 与全新环境。
+- 仓库内 `gradle.properties` 的四行 `systemProp.*.proxyHost/Port` **默认注释掉**，方便其他环境（无代理或有自有代理）直接构建。
 - 本机把代理写在 `GRADLE_USER_HOME` 的全局 `gradle.properties` 里，不动仓库文件。
 - 历史故障：系统 DNS 曾把 `maven.neoforged.net` 解析到错误 IP，直连超时；走代理后正常。
 
@@ -40,7 +40,7 @@ compileOnly "maven.modrinth:curios:${curios_version}"           // yohfFbgD = 9.
 
 - DSH 沙箱只允许写工作区，因此本机把 `GRADLE_USER_HOME` 指到工作区内的 `./.gradle-home`（已在 `.gitignore`）。
   首次需要把 `~/.gradle/wrapper/dists/gradle-8.14.2-bin` 复制进 `.gradle-home/wrapper/dists`，否则 wrapper 会尝试重新下载。
-- `gradlew` 在本仓库以 **LF** 检出（`.gitattributes` 固定 `text eol=lf`），否则 Linux/CI 上 `./gradlew` 会因 shebang 带 CR 失败。
+- `gradlew` 在本仓库以 **LF** 检出（`.gitattributes` 固定 `text eol=lf`），否则在 Linux / WSL 上执行 `./gradlew` 会因 shebang 带 CR 失败。
 - **NeoForm 重编译故障与绕过**：`createMinecraftArtifacts` 在 recompile 阶段写
   `net/minecraft/world/ticks/package-info.java` 时抛 `IOException`（message 为 `null`），
   与 ModDevGradle（2.0.78 / 2.0.91 / 2.0.148）、NeoFormRuntime、JDK（Zulu / Temurin）均无关。
